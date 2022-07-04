@@ -1,0 +1,23 @@
+.navbar {
+    height: 10vh;
+    background-color: #500;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+.navbar h2 {
+    font-size: 2rem;
+}
+
+.navbar a {
+    font-size: 1.5rem;
+    color: #aaa;
+    margin-left: 40px;
+}
+
+.navbar a:hover {
+    color: #ddd;
+}

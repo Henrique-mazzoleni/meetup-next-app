@@ -1,3 +1,23 @@
+import { Fragment } from "react";
+import Navbar from "../components/Layout/Navbar";
+import MeetupList from "../components/Meetups/MeetupList";
+
+const DUMMY_LIST = [
+  {
+    id: "m1",
+    title: "Berlin meetup",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg",
+    address: "Pariser Platz, 10117 Berlin",
+    description: "This is our first meetup in Berlin.",
+  },
+];
+
 export default function HomePage() {
-    return <h1>Home</h1>
+  return (
+    <Fragment>
+      <Navbar />
+      <MeetupList meetups={DUMMY_LIST} />
+    </Fragment>
+  );
 }
