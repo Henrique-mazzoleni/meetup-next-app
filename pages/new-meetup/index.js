@@ -1,3 +1,12 @@
+import { Fragment } from "react"
+import Navbar from "../../components/Layout/Navbar"
+import NewMeetupForm from "../../components/Meetups/NewMeetupForm"
+
 export default function NewMeetup() {
-    return <h1>New Meetup</h1>
+    return (
+        <Fragment>
+            <Navbar />
+            <NewMeetupForm />
+        </Fragment>
+    )
 }

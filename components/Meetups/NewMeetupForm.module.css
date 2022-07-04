@@ -1,0 +1,42 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px 0 #bbb;
+}
+
+.form label {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.form input, .form textarea {
+    font-size: inherit;
+    margin-bottom: 10px;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form input:focus, .form textarea:focus {
+    border: 1px solid #05a;
+}
+
+.form textarea {
+    font-family: inherit;
+    height: 125px;
+}
+
+.form button {
+    align-self: end;
+    padding: 7px 20px;
+    font-size: inherit;
+    font-weight: 600;
+    color: #ddd;
+    background-color: #500;
+    border: 1px solid #500;
+    border-radius: 5px;
+}
