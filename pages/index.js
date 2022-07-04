@@ -5,7 +5,7 @@ import MeetupList from "../components/Meetups/MeetupList";
 const DUMMY_LIST = [
   {
     id: "m1",
-    title: "Berlin meetup",
+    title: "Berlin Meetup",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/3/3b/Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg",
     address: "Pariser Platz, 10117 Berlin",
