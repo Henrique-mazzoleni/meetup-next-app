@@ -1,8 +1,6 @@
-import { Fragment } from "react";
-import Navbar from "../components/Layout/Navbar";
 import MeetupList from "../components/Meetups/MeetupList";
 
-const DUMMY_LIST = [
+export const DUMMY_LIST = [
   {
     id: "m1",
     title: "Berlin Meetup",
@@ -14,10 +12,5 @@ const DUMMY_LIST = [
 ];
 
 export default function HomePage() {
-  return (
-    <Fragment>
-      <Navbar />
-      <MeetupList meetups={DUMMY_LIST} />
-    </Fragment>
-  );
+  return <MeetupList meetups={DUMMY_LIST} />;
 }
