@@ -1,0 +1,33 @@
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    margin: 100px auto;
+  }
+  
+  .item span,
+  .item p,
+  .item img,
+  .item a {
+    margin-bottom: 30px;
+  }
+  
+  .item img {
+    width: 600px;
+  }
+  
+  .item span {
+    font-size: 1.4em;
+    font-weight: 600;
+  }
+  
+  .item p {
+    font-style: italic;
+  }
+  
+  .item .description {
+    font-style: normal;
+    font-size: 1.2rem;
+  }
