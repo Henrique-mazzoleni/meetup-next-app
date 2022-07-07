@@ -1,17 +1,30 @@
-import { useEffect, useState } from "react";
+import { MongoClient } from "mongodb";
 import MeetupList from "../components/Meetups/MeetupList";
 
-export default function HomePage() {
-  const [meetupList, setMeetupList] = useState(null)
+export default function HomePage(props) {
+  return <MeetupList meetups={props.meetups} />;
+}
 
-  useEffect(() => {
-    const fetchMeetups = async () => {
-      const response =  await fetch('/api/meetups')
-      const data = await response.json()
-      setMeetupList(data.body)
-    }
-    fetchMeetups()
-  },[])
+export async function getStaticProps() {
+  const DATABASE_URI = "mongodb://mongodb:27017/";
+  const client = new MongoClient(DATABASE_URI + "meetups");
 
-  return <MeetupList meetups={meetupList} />;
+  try {
+    await client.connect();
+    const meetupsCollection = client.db().collection("meetups");
+    const meetups = await meetupsCollection.find().toArray();
+
+    return {
+      props: {
+        meetups: meetups.map((meetup) => {
+          return { ...meetup, _id: meetup._id.toString() };
+        }),
+      },
+      revalidate: 5,
+    };
+  } catch (error) {
+    console.dir;
+  } finally {
+    await client.close();
+  }
 }
