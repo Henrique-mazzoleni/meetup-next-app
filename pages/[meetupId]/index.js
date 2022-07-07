@@ -1,4 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb";
+import { Fragment } from "react";
+import Head from "next/head";
 
 import classes from "../../styles/MeetupDetail.module.css";
 
@@ -6,12 +8,18 @@ export default function MeetupDetail(props) {
   if (!props.meetup) return <h1>Meetup not found!</h1>;
 
   return (
-    <div className={classes.item}>
-      <img src={props.meetup.image} />
-      <span>{props.meetup.title}</span>
-      <p className="description">{props.meetup.description}</p>
-      <p>{props.meetup.address}</p>
-    </div>
+    <Fragment>
+      <Head>
+        <title>{props.meetup.title}</title>
+        <meta name="description" content={props.meetup.description} />
+      </Head>
+      <div className={classes.item}>
+        <img src={props.meetup.image} />
+        <span>{props.meetup.title}</span>
+        <p className="description">{props.meetup.description}</p>
+        <p>{props.meetup.address}</p>
+      </div>
+    </Fragment>
   );
 }
 
@@ -28,8 +36,8 @@ export async function getStaticPaths() {
       fallback: false,
       paths: ids.map((meetup) => ({
         params: {
-          meetupId: meetup._id.toString()
-        }
+          meetupId: meetup._id.toString(),
+        },
       })),
     };
   } catch (error) {
