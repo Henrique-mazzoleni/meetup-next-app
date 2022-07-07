@@ -1,29 +1,31 @@
+import { useRouter } from "next/router";
 import { useRef } from "react";
 import classes from "./NewMeetupForm.module.css";
 
 export default function NewMeetupForm() {
+  const router = useRouter()
   const titleInput = useRef();
   const imageInput = useRef();
   const addressInput = useRef();
   const descriptionInput = useRef();
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
-    console.log({
-      id: Math.random(),
-      title: titleInput.current.value,
-      image: imageInput.current.value,
-      address: addressInput.current.value,
-      description: descriptionInput.current.value,
+    await fetch("/api/new-meetup", {
+      method: "POST",
+      body: JSON.stringify({
+        title: titleInput.current.value,
+        image: imageInput.current.value,
+        address: addressInput.current.value,
+        description: descriptionInput.current.value,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
     });
 
-    titleInput.current.value = "";
-    imageInput.current.value = "";
-    addressInput.current.value = "";
-    descriptionInput.current.value = "";
-
-    titleInput.current.focus();
+    router.push('/')
   };
 
   return (

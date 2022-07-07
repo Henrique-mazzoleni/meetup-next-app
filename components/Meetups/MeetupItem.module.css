@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid #ccc;
+    margin-top: 30px;
 }
 
 .item span, .item p, .item img, .item a {
