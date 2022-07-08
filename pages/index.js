@@ -15,12 +15,11 @@ export default function HomePage(props) {
 }
 
 export async function getStaticProps() {
-  const DATABASE_URI = "mongodb://mongodb:27017/";
-  const client = new MongoClient(DATABASE_URI + "meetups");
+  const client = new MongoClient(process.env.DATABASE_URI);
 
   try {
     await client.connect();
-    const meetupsCollection = client.db().collection("meetups");
+    const meetupsCollection = client.db('meetups').collection("meetups");
     const meetups = await meetupsCollection.find().toArray();
 
     return {

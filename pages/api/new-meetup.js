@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const DATABASE_URI = "mongodb://mongodb:27017/";
-const client = new MongoClient(DATABASE_URI + "meetups")
+const client = new MongoClient(process.env.DATABASE_URI);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -9,7 +8,7 @@ export default async function handler(req, res) {
 
     try {
       await client.connect();
-      const db = client.db();
+      const db = client.db("meetups");
       const meetupsCollection = db.collection("meetups");
       await meetupsCollection.insertOne(data);
     } catch (error) {

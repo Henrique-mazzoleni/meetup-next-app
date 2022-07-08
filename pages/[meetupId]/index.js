@@ -24,12 +24,11 @@ export default function MeetupDetail(props) {
 }
 
 export async function getStaticPaths() {
-  const DATABASE_URI = "mongodb://mongodb:27017/";
-  const client = new MongoClient(DATABASE_URI + "meetups");
+  const client = new MongoClient(process.env.DATABASE_URI);
 
   try {
     await client.connect();
-    const meetupsCollection = client.db().collection("meetups");
+    const meetupsCollection = client.db("meetups").collection("meetups");
     const ids = await meetupsCollection.find({}, { _id: 1 }).toArray();
 
     return {
