@@ -19,7 +19,7 @@ COPY components ./components
 COPY pages ./pages
 COPY public ./public
 COPY styles ./styles
-# COPY .env ./
+ENV DATABASE_URI=${DATABASE_URI}
 
 RUN npm run build
 
