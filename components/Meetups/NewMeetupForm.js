@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useRef } from "react";
-import classes from "./NewMeetupForm.module.css";
+import classes from "../../styles/components/Meetups/NewMeetupForm.module.css";
 
 export default function NewMeetupForm() {
   const router = useRouter()

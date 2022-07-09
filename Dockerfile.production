@@ -1,0 +1,40 @@
+FROM node:lts-alpine as deps
+ENV NODE_ENV=production
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+
+FROM node:lts-alpine as builder
+ENV NODE_ENV=production
+WORKDIR /app
+
+COPY next.config.js ./
+COPY package.json package-lock.json ./
+COPY --from=deps /app/node_modules ./node_modules
+
+COPY components ./components
+COPY pages ./pages
+COPY public ./public
+COPY styles ./styles
+COPY .env ./
+
+RUN npm run build
+
+
+FROM node:lts-alpine as runner
+ENV NODE_ENV=production
+WORKDIR /app
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+CMD ["node", "server.js"]

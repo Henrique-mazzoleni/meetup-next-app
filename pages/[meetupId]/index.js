@@ -47,14 +47,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const DATABASE_URI = "mongodb://mongodb:27017/";
-  const client = new MongoClient(DATABASE_URI + "meetups");
+  const client = new MongoClient(process.env.DATABASE_URI);
 
   try {
     const id = context.params.meetupId;
 
     await client.connect();
-    const meetupsCollection = client.db().collection("meetups");
+    const meetupsCollection = client.db("meetups").collection("meetups");
     const meetup = await meetupsCollection.findOne(ObjectId(id));
 
     return {

@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "62c5552af2c2aa4bcab24a20"
+  },
+  "title": "Erfurt Meetup",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Erfurt%2C_Fototour_2014.jpg",
+  "address": "Anger 1-3, 99084 Erfurt",
+  "description": "Our first Erfurt meetup!"
+},{
+  "_id": {
+    "$oid": "62c555d1f2c2aa4bcab24a21"
+  },
+  "title": "Berlin Meetup",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg",
+  "address": "Pariser Platz, 10117 Berlin",
+  "description": "This is our first meetup in Berlin."
+},{
+  "_id": {
+    "$oid": "62c6a65f2276ecda331b069c"
+  },
+  "title": "Stuttgart Meetup",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Neues_Schloss_Schlossplatzspringbrunnen_Jubil%C3%A4umss%C3%A4ule_Schlossplatz_Stuttgart_2015_01.jpg",
+  "address": "Schloßpl., 70173 Stuttgart",
+  "description": "Our first Meetup in Stuttgart!"
+},{
+  "_id": {
+    "$oid": "62c6a8972276ecda331b069f"
+  },
+  "title": "Frankfurt am Main Meetup",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Frankfurt_Am_Main-Roemerberg_19-27_von_Suedosten-20110307.jpg",
+  "address": "Römerberg 23, 60311 Frankfurt am Main",
+  "description": "Come and Meetup with us in Frankfurt!"
+},{
+  "_id": {
+    "$oid": "62c93d28c6b9bd39b76e5818"
+  },
+  "title": "Meetup Hamburg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Projekt_Hei%C3%9Fluftballon_-_Highflyer_-IMG-1414.jpg",
+  "address": "Wandrahmsfleet-Brücke, 20457 Hamburg",
+  "description": "Come and meet us in Hamburg!"
+}]

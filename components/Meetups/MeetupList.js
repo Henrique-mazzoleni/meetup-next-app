@@ -1,6 +1,6 @@
 import MeetupItem from "./MeetupItem";
 
-import classes from './MeetupList.module.css';
+import classes from '../../styles/components/Meetups/MeetupList.module.css';
 
 export default function MeetupList(props) {
   if (!props.meetups) return <p>No Meetups yet!</p>

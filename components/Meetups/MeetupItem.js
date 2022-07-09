@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import classes from './MeetupItem.module.css';
+import classes from '../../styles/components/Meetups/MeetupItem.module.css';
 
 export default function MeetupItem(props) {
     return <li className={classes.item}>
