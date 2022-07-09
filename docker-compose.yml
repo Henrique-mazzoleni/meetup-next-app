@@ -3,10 +3,16 @@ services:
   meetup-next-app:
     image: henriquemazzoleni/meetup-next-app
     build: .
+    env_file:
+      - .env.local
+    depends_on:
+      - mongodb
     ports:
       - 3000:3000
     volumes:
-      - .:/usr/src/app
+      - ./pages:/usr/src/app/pages
+      - ./public:/usr/src/app/public
+      - ./styles:/usr/src/app/styles
   mongodb:
     image: mongo
     ports:

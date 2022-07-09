@@ -1,10 +1,13 @@
 FROM node:lts-alpine
 WORKDIR /usr/src/app
 
-COPY pack*.json ./
-RUN npm ci && mv node_modules/ ../
-COPY . .
-RUN npm run build
+COPY package.json package-lock.json ./
+RUN npm ci
 
-CMD ["npm", "start"]
-# CMD [ "npm", "run", "dev" ]
+COPY next.config.js ./next.config.js
+
+COPY pages ./pages
+COPY public ./public
+COPY styles ./styles
+
+CMD [ "npm", "run", "dev" ]
