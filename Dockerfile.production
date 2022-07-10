@@ -8,6 +8,8 @@ RUN npm ci
 
 
 FROM node:lts-alpine as builder
+ARG DATABASE_URI
+ENV DATABASE_URI=$DATABASE_URI
 ENV NODE_ENV=production
 WORKDIR /app
 

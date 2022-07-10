@@ -1,6 +1,5 @@
-setup:
-  config:
-    DATABASE_URI: mongodb+srv://Nextjs-meetups:ug3HDrevDCirf4tGKAm3@atlas-free.injbilx.mongodb.net/?authSource=admin&replicaSet=atlas-9cxxy6-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
 build:
   docker:
     web: Dockerfile.production
+  config:
+    DATABASE_URI: mongodb+srv://Nextjs-meetups:ug3HDrevDCirf4tGKAm3@atlas-free.injbilx.mongodb.net/?authSource=admin&replicaSet=atlas-9cxxy6-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
